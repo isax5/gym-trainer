@@ -197,15 +197,17 @@ section { padding: 90px 0; }
 
 /* ── Screenshot gallery ─────────────────────────────────────── */
 .gallery {
-  text-align: center;
-  font-size: 0; /* collapse inline-block whitespace */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 22px;
   padding: 8px 0;
 }
 .gallery .shot {
-  display: inline-block;
-  vertical-align: top;
+  flex: 0 0 200px;
   width: 200px;
-  margin: 16px 11px;
+  min-width: 0; /* Safari: stop img intrinsic size from forcing 1 per row */
+  margin: 0;
   text-align: center;
   transition: transform 0.25s ease;
 }
@@ -225,7 +227,7 @@ section { padding: 90px 0; }
   font-weight: 500;
 }
 @media (max-width: 880px) {
-  .gallery .shot { width: 150px; margin: 13px 8px; }
+  .gallery .shot { flex-basis: 150px; width: 150px; }
 }
 
 /* ── Languages ──────────────────────────────────────────────── */
